@@ -18,7 +18,7 @@ RUN ./superset load_examples
 RUN ./superset init
 
 ADD ./init.sh /root/
-chmod +x /root/init.sh
+RUN chmod +x /root/init.sh
 
 EXPOSE 8088
 
