@@ -17,6 +17,9 @@ RUN ./superset db upgrade
 RUN ./superset load_examples
 RUN ./superset init
 
+ADD ./init.sh /root/
+chmod +x /root/init.sh
+
 EXPOSE 8088
 
-ENTRYPOINT ["/root/venv/bin/superset", "runserver"]
+ENTRYPOINT ["/root/init.sh"]
